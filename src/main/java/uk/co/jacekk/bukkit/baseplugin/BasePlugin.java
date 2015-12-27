@@ -1,6 +1,7 @@
 package uk.co.jacekk.bukkit.baseplugin;
 
 import java.io.File;
+import org.bukkit.ChatColor;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -99,5 +100,61 @@ public abstract class BasePlugin extends JavaPlugin {
 	public CommandManager getCommandManager(){
 		return this.commandManager;
 	}
+        
+        /**
+	 * Formats a message for the plugin.
+	 * 
+	 * @param message	The message to be formatted.
+	 * @param colour	If set to true the prefix is coloured blue.
+	 * @param version	If set to true the version is included in the prefix.
+	 * @return			The formatted message.
+	 */
+	public String formatMessage(String message, boolean colour, boolean version){
+		StringBuilder line = new StringBuilder();
+		
+		if (colour){
+			line.append(ChatColor.BLUE);
+		}
+		
+		line.append("[");
+		line.append(getDescription().getName());
+		
+		if (version){
+			line.append(" v");
+			line.append(getDescription().getVersion());
+		}
+		
+		line.append("] ");
+		line.append(ChatColor.RESET);
+		line.append(message);
+		
+		return line.toString();
+	}
+	
+	/**
+	 * Formats a message for the plugin.
+	 * <p />
+	 * NOTE: The version number is included in the prefix if  colour is disabled.
+	 * 
+	 * @param message	The message to be formatted.
+	 * @param colour	If set to true the prefix is coloured blue.
+	 * @return			The formatted message.
+	 */
+	public String formatMessage(String message, boolean colour){
+		return this.formatMessage(message, colour, !colour);
+	}
+	
+	/**
+	 * Formats a message for the plugin.
+	 * <p />
+	 * NOTE: Colour is enabled and the version number is not in the prefix.
+	 * 
+	 * @param message	The message to be formatted.
+	 * @return			The formatted message.
+	 */
+	public String formatMessage(String message){
+		return this.formatMessage(message, true, false);
+	}
+	
 	
 }
