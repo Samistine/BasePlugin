@@ -34,7 +34,7 @@ public class CommandManager {
 	}
 	
 	private boolean registerCommand(PluginCommand command){
-		return this.commandMap.register(plugin.description.getName(), command);
+		return this.commandMap.register(plugin.getDescription().getName(), command);
 	}
 	
 	/**

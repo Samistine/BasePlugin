@@ -2,7 +2,6 @@ package uk.co.jacekk.bukkit.baseplugin;
 
 import java.io.File;
 
-import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import uk.co.jacekk.bukkit.baseplugin.command.CommandManager;
@@ -21,11 +20,6 @@ public abstract class BasePlugin extends JavaPlugin {
 	 */
 	public static final String VERSION = "14";
 	private static final String PACKAGE_NAME = "14";
-	
-	/**
-	 * The {@link PluginDescriptionFile} for this plugin.
-	 */
-	public PluginDescriptionFile description;
 	
 	/**
 	 * The plugin's data folder.
@@ -58,8 +52,6 @@ public abstract class BasePlugin extends JavaPlugin {
 		if (!BasePlugin.class.getName().equals(packageName + ".v" + PACKAGE_NAME + ".BasePlugin")){
 			throw new PackageNameException(BasePlugin.class.getName());
 		}
-		
-		this.description = this.getDescription();
 		
 		this.baseDir = this.getDataFolder();
 		this.baseDirPath = this.baseDir.getAbsolutePath();
