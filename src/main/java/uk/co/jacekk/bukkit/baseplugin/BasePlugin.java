@@ -7,7 +7,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import uk.co.jacekk.bukkit.baseplugin.command.CommandManager;
 import uk.co.jacekk.bukkit.baseplugin.config.PluginConfig;
-import uk.co.jacekk.bukkit.baseplugin.logging.PluginLogger;
 import uk.co.jacekk.bukkit.baseplugin.permissions.PermissionManager;
 
 /**
@@ -27,11 +26,6 @@ public abstract class BasePlugin extends JavaPlugin {
 	 * The {@link PluginDescriptionFile} for this plugin.
 	 */
 	public PluginDescriptionFile description;
-	
-	/**
-	 * The {@link PluginLogger} for this plugin.
-	 */
-	public PluginLogger log;
 	
 	/**
 	 * The plugin's data folder.
@@ -66,7 +60,6 @@ public abstract class BasePlugin extends JavaPlugin {
 		}
 		
 		this.description = this.getDescription();
-		this.log = new PluginLogger(this);
 		
 		this.baseDir = this.getDataFolder();
 		this.baseDirPath = this.baseDir.getAbsolutePath();

@@ -5,11 +5,10 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.bukkit.configuration.file.YamlConfiguration;
-
-import uk.co.jacekk.bukkit.baseplugin.logging.PluginLogger;
 
 /**
  * The configuration of a plugin, this represents the config.yml (or other name) file.
@@ -21,7 +20,7 @@ public class PluginConfig {
 	private File configFile;
 	private YamlConfiguration config;
 	private PluginConfigKey[] configDefaults;
-	private PluginLogger log;
+	private Logger log;
 	
 	/**
 	 * Creates a new config object that can be used to fetch the value of a {@link PluginConfigKey}
@@ -30,7 +29,7 @@ public class PluginConfig {
 	 * @param configDefaults	The default configuration options to be used if an entry cannot be found.
 	 * @param log				The {@link PluginLogger} to be used for any messages.
 	 */
-	public PluginConfig(File configFile, PluginConfigKey[] configDefaults, PluginLogger log){
+	public PluginConfig(File configFile, PluginConfigKey[] configDefaults, Logger log){
 		this.configFile = configFile;
 		this.config = new YamlConfiguration();
 		this.configDefaults = configDefaults;
@@ -46,7 +45,7 @@ public class PluginConfig {
 	 * @param configDefaults	The class holding the default configuration options to be used if an entry cannot be found.
 	 * @param log				The {@link PluginLogger} to be used for any messages.
 	 */
-	public PluginConfig(File configFile, Class<?> configHolder, PluginLogger log){
+	public PluginConfig(File configFile, Class<?> configHolder, Logger log){
 		ArrayList<PluginConfigKey> config = new ArrayList<PluginConfigKey>();
 		
 		for (Field field : configHolder.getDeclaredFields()){
