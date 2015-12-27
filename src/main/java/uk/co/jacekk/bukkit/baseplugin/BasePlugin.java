@@ -18,8 +18,8 @@ public abstract class BasePlugin extends JavaPlugin {
 	/**
 	 * The version of the BasePlugin library
 	 */
-	public static final String VERSION = "14";
-	private static final String PACKAGE_NAME = "14";
+	public static final String VERSION = "15";
+	private static final String PACKAGE_NAME = "15";
 	
 	/**
 	 * The plugin's data folder.
