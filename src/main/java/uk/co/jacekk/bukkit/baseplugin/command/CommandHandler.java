@@ -13,20 +13,20 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CommandHandler {
-	
-	/**
-	 * @return	The names that can be used for this command.
-	 */
-	String[] names();
-	
-	/**
-	 * @return	The long description of this command.
-	 */
-	String description();
-	
-	/**
-	 * @return	The usage information for this command.
-	 */
-	String usage() default "";
+
+    /**
+     * @return	The names that can be used for this command.
+     */
+    String[] names();
+
+    /**
+     * @return	The long description of this command.
+     */
+    String description();
+
+    /**
+     * @return	The usage information for this command.
+     */
+    String usage() default "";
 	
 }

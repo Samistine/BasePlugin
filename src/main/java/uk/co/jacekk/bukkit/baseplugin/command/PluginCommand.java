@@ -36,7 +36,7 @@ public class PluginCommand extends Command implements PluginIdentifiableCommand 
         this.plugin = plugin;
         this.handler = handler;
         this.handlerMethod = handlerMethod;
-        this.subCommands = new HashMap<String, PluginSubCommand>();
+        this.subCommands = new HashMap<>();
         this.tabCompletion = tabCompletion;
     }
 
@@ -97,7 +97,7 @@ public class PluginCommand extends Command implements PluginIdentifiableCommand 
             tabCompletion = this.tabCompletion;
         }
 
-        ArrayList<String> completions = new ArrayList<String>();
+        ArrayList<String> completions = new ArrayList<>();
 
         boolean empty = args[args.length - 1].isEmpty();
 
@@ -136,11 +136,7 @@ public class PluginCommand extends Command implements PluginIdentifiableCommand 
                             }
                         }
                     }
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (InvocationTargetException e) {
-                    e.printStackTrace();
-                } catch (NoSuchMethodException e) {
+                } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
                     e.printStackTrace();
                 }
             } else {

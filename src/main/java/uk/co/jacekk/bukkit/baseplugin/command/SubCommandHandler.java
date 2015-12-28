@@ -14,14 +14,14 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface SubCommandHandler {
 	
-	/**
-	 * @return	The name of the parent command.
-	 */
-	String parent();
-	
-	/**
-	 * @return	The name of this sub-command
-	 */
-	String name();
+    /**
+     * @return	The name of the parent command.
+     */
+    String parent();
+
+    /**
+     * @return	The name of this sub-command
+     */
+    String name();
 	
 }
